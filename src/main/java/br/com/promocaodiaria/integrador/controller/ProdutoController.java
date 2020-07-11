@@ -19,10 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.promocaodiaria.integrador.dto.ProdutoPromoDiariaDto;
 import br.com.promocaodiaria.integrador.fire.model.EstoqueWrapper;
 import br.com.promocaodiaria.integrador.fire.repository.EstoqueRepository;
 import br.com.promocaodiaria.integrador.pg.model.ProdutoPromoDiaria;
 import br.com.promocaodiaria.integrador.pg.repository.ProdutoPromoDiariaRepository;
+import br.com.promocaodiaria.integrador.service.ProdutoPromoDiariaService;
 
 @RestController
 @RequestMapping("/produtos")
@@ -35,33 +37,39 @@ public class ProdutoController {
 	BuildProperties buildProperties;
 	
 	@Autowired
+	ProdutoPromoDiariaService produtoPromoDiariaService;
+	
+	@Autowired
 	ProdutoPromoDiariaRepository produtoPromoDiariaRepository;
 	
 	@GetMapping
 	public List<EstoqueWrapper> findEstoqueByName(@RequestParam String query, @RequestParam Integer page) {
-		PageRequest of = PageRequest.of(page, 20, Sort.by(Direction.ASC, "descricao"));
-		return estoqueRepository.findEstoqueByName(query);
+		
+		return estoqueRepository.findEstoqueByDescricao(query);
 	}
 	
-	@GetMapping(value="promocoes")
+	@GetMapping("promocoes")
 	public Page<ProdutoPromoDiaria> produtosPromocao(Integer page) {
-		PageRequest of = PageRequest.of(page, 20, Sort.by(Direction.ASC, "descricao"));
+		
+		PageRequest of = PageRequest.of(page, 10, Sort.by(Direction.ASC, "descricao"));
+		
 		return produtoPromoDiariaRepository.findAll(of);
 	}
 
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> salvar(@RequestBody List<ProdutoPromoDiaria> produtos) {
-
+	public ResponseEntity<?> salvar(@RequestBody List<ProdutoPromoDiariaDto> produtos) {
+		
+		produtoPromoDiariaService.save(produtos);
+		
 		return ResponseEntity.noContent().build();
 	}
 
 	@GetMapping("version")
-	public Map version() {
+	public Map<String, String> version() {
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("versao", buildProperties.get("versao.projeto"));
-
+		
 		return map;
 	}
-
 }

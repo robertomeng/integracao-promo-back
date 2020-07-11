@@ -9,5 +9,6 @@ import br.com.promocaodiaria.integrador.fire.model.EstoqueWrapper;
 @Repository
 public interface EstoqueRepositoryCustom {
 
-	public List<EstoqueWrapper> findEstoqueByName(String query);
+	public List<EstoqueWrapper> findEstoqueByDescricao(String query);
+	public EstoqueWrapper findEstoqueById(Long id);
 }

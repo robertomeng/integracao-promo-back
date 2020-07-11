@@ -11,19 +11,24 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.NonNull;
 
 @Entity
 @Table(name="prod_promo_diaria")
 @Data
 public class ProdutoPromoDiaria {
 	
+	public ProdutoPromoDiaria() {}
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NonNull
 	@Column(name="descricao")
 	private String descricao;
 	
+	@NonNull
 	@Column(name="id_produto_cliente")
 	private Long idProdutoCliente;
 	
@@ -33,6 +38,7 @@ public class ProdutoPromoDiaria {
 	@Column(name="dt_fim")
 	private LocalDate dtFim;
 	
+	@NonNull
 	@Column(name="valor")
 	private BigDecimal valor;
 	
@@ -44,5 +50,16 @@ public class ProdutoPromoDiaria {
 	
 	@Column(name="estoque")
 	private BigDecimal estoque;
-
+	
+	@Column(name="cod_barra")
+	private String codBarra; 
+	
+	@Column(name="cod_ncm")
+	private String codNcm;
+	
+	@Column(name="uni_medida")
+	private String uniMedida;
+	
+	@Column(name="sync")
+	private boolean sync = false;
 }

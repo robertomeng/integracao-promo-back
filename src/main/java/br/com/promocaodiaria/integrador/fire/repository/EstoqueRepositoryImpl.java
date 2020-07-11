@@ -19,15 +19,23 @@ public class EstoqueRepositoryImpl implements EstoqueRepositoryCustom {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
-	public List<EstoqueWrapper> findEstoqueByName(String query) {
+	public List<EstoqueWrapper> findEstoqueByDescricao(String query) {
 		
 		Map<String,Object> params = new HashMap<String,Object>();
 	    params.put("query", query);
 
 	    NamedParameterJdbcTemplate npjt = new NamedParameterJdbcTemplate(jdbcTemplate.getDataSource());
-	    List<EstoqueWrapper> lista = npjt.query(Queries.select_produtos_por_descricao, params, new EstoqueWrapperRowMapper());
-		
-		return lista;
+	    
+	    return npjt.query(Queries.select_produtos_por_descricao, params, new EstoqueWrapperRowMapper());
 	}
+	
+	public EstoqueWrapper findEstoqueById(Long id) {
+		
+		Map<String,Object> params = new HashMap<String,Object>();
+	    params.put("id", id);
 
+	    NamedParameterJdbcTemplate npjt = new NamedParameterJdbcTemplate(jdbcTemplate.getDataSource());
+	    
+	    return npjt.queryForObject(Queries.select_produtos_por_id, params, new EstoqueWrapperRowMapper());
+	}
 }
