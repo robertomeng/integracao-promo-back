@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.com.promocaodiaria.integrador.pg.model.ProdutoPromoDiaria;
 
 @Repository
-public interface ProdutoPromoDiariaRepository extends JpaRepository<ProdutoPromoDiaria, Long>{
+public interface ProdutoPromoDiariaRepository extends JpaRepository<ProdutoPromoDiaria, Long> {
 
 }

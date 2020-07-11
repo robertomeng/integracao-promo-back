@@ -6,12 +6,12 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.info.BuildProperties;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,9 +38,15 @@ public class ProdutoController {
 	ProdutoPromoDiariaRepository produtoPromoDiariaRepository;
 	
 	@GetMapping
-	public List<EstoqueWrapper> lista(@RequestParam String query, @RequestParam Integer page) {
+	public List<EstoqueWrapper> findEstoqueByName(@RequestParam String query, @RequestParam Integer page) {
 		PageRequest of = PageRequest.of(page, 20, Sort.by(Direction.ASC, "descricao"));
 		return estoqueRepository.findEstoqueByName(query);
+	}
+	
+	@GetMapping(value="promocoes")
+	public Page<ProdutoPromoDiaria> produtosPromocao(Integer page) {
+		PageRequest of = PageRequest.of(page, 20, Sort.by(Direction.ASC, "descricao"));
+		return produtoPromoDiariaRepository.findAll(of);
 	}
 
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)

@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import br.com.promocaodiaria.integrador.fire.model.EstoqueWrapper;
-import br.com.promocaodiaria.integrador.query.Querys;
+import br.com.promocaodiaria.integrador.query.Queries;
 import br.com.promocaodiaria.integrador.rowmapper.EstoqueWrapperRowMapper;
 
 @Repository
@@ -25,7 +25,7 @@ public class EstoqueRepositoryImpl implements EstoqueRepositoryCustom {
 	    params.put("query", query);
 
 	    NamedParameterJdbcTemplate npjt = new NamedParameterJdbcTemplate(jdbcTemplate.getDataSource());
-	    List<EstoqueWrapper> lista = npjt.query(Querys.select_produtos, params, new EstoqueWrapperRowMapper());
+	    List<EstoqueWrapper> lista = npjt.query(Queries.select_produtos_por_descricao, params, new EstoqueWrapperRowMapper());
 		
 		return lista;
 	}
