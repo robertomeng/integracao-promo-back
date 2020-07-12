@@ -29,8 +29,8 @@ public class ProdutoPromoDiaria {
 	private String descricao;
 	
 	@NonNull
-	@Column(name="id_produto_cliente")
-	private Long idProdutoCliente;
+	@Column(name="id_identificador")
+	private Long idIdentificador;
 	
 	@Column(name="dt_inicio")
 	private LocalDate dtInicio;
@@ -39,8 +39,8 @@ public class ProdutoPromoDiaria {
 	private LocalDate dtFim;
 	
 	@NonNull
-	@Column(name="valor")
-	private BigDecimal valor;
+	@Column(name="prc_venda")
+	private BigDecimal prcVenda;
 	
 	@Column(name="vl_custo")
 	private BigDecimal vlCusto;
@@ -48,8 +48,8 @@ public class ProdutoPromoDiaria {
 	@Column(name="vl_promocao")
 	private BigDecimal vlPromocao;
 	
-	@Column(name="estoque")
-	private BigDecimal estoque;
+	@Column(name="qt_atual")
+	private BigDecimal qtAtual;
 	
 	@Column(name="cod_barra")
 	private String codBarra; 
@@ -62,4 +62,7 @@ public class ProdutoPromoDiaria {
 	
 	@Column(name="sync")
 	private boolean sync = false;
+	
+	@Column(name="ativo")
+	private boolean ativo = false;
 }

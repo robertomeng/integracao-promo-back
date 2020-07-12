@@ -49,11 +49,11 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("promocoes")
-	public Page<ProdutoPromoDiaria> produtosPromocao(Integer page) {
+	public ResponseEntity<?> produtosPromocao(Integer page) {
 		
 		PageRequest of = PageRequest.of(page, 10, Sort.by(Direction.ASC, "descricao"));
 		
-		return produtoPromoDiariaRepository.findAll(of);
+		return ResponseEntity.ok(produtoPromoDiariaRepository.findAll(of));
 	}
 
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)

@@ -9,7 +9,7 @@ import lombok.Data;
 public class EstoqueWrapper {
 
 	private Long idIdentificador;
-	private BigDecimal qtdAtual;
+	private BigDecimal qtAtual;
 	private String codBarra; 
 	private String codNcm; 
 	private String descricao;

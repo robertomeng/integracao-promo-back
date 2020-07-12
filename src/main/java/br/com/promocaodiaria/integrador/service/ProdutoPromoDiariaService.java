@@ -1,7 +1,6 @@
 package br.com.promocaodiaria.integrador.service;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,20 +24,20 @@ public class ProdutoPromoDiariaService {
 	public void save(List<ProdutoPromoDiariaDto> produtos) {
 		produtos.forEach(produtoDto -> {
 			EstoqueWrapper estoque = estoqueRepository.findEstoqueById(produtoDto.getIdIdentificador());
-			produtoPromoDiariaRepository.save(parserProduto(estoque, produtoDto.getDatas()));	
+			produtoPromoDiariaRepository.save(parserProduto(estoque, produtoDto));	
 		});
 	}
 	
-	private ProdutoPromoDiaria parserProduto(EstoqueWrapper estoque, List<LocalDate> datas) {
+	private ProdutoPromoDiaria parserProduto(EstoqueWrapper estoque, ProdutoPromoDiariaDto dto) {
 		
 		ProdutoPromoDiaria produtoPromoDiaria = new ProdutoPromoDiaria();
 		
 		produtoPromoDiaria.setDescricao(estoque.getDescricao());
-		produtoPromoDiaria.setDtInicio(datas.get(0));
-		produtoPromoDiaria.setDtFim(datas.get(1));
-		produtoPromoDiaria.setEstoque(estoque.getQtdAtual());
-		produtoPromoDiaria.setIdProdutoCliente(estoque.getIdIdentificador());
-		produtoPromoDiaria.setValor(estoque.getPrcVenda());
+		produtoPromoDiaria.setDtInicio(dto.getDtInicio());
+		produtoPromoDiaria.setDtFim(dto.getDtFim());
+		produtoPromoDiaria.setQtAtual(estoque.getQtAtual());
+		produtoPromoDiaria.setIdIdentificador(estoque.getIdIdentificador());
+		produtoPromoDiaria.setPrcVenda(estoque.getPrcVenda());
 		produtoPromoDiaria.setVlCusto(BigDecimal.ZERO);
 		produtoPromoDiaria.setVlPromocao(BigDecimal.ZERO);
 		produtoPromoDiaria.setCodBarra(estoque.getCodBarra());

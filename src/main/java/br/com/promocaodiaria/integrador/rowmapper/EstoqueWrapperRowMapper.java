@@ -20,7 +20,7 @@ public class EstoqueWrapperRowMapper implements RowMapper<EstoqueWrapper>{
 		wrapper.setDtFim(new LocalDateConverter().convertToEntityAttribute(rs.getDate("dt_fim")));
 		wrapper.setIdIdentificador(rs.getLong("id_identificador"));
 		wrapper.setPrcVenda(rs.getBigDecimal("prc_venda"));
-		wrapper.setQtdAtual(rs.getBigDecimal("qtd_atual"));
+		wrapper.setQtAtual(rs.getBigDecimal("qtd_atual"));
 		wrapper.setUniMedida(rs.getString("uni_medida"));
 		return wrapper;
 	}
