@@ -25,14 +25,14 @@ class Queries {
 
 	public static final String select_produtos_por_descricao = select_produtos.concat(" b.DESCRICAO LIKE '%'||:query||'%'")
 	
-	public static final String select_produto_alterado = select_produtos.concat(""" a.ID_IDENTIFICADOR = :id
+	public static final String select_produto_alterado = select_produtos.concat(""" a.ID_IDENTIFICADOR = :idIdentificador
 		AND (
-			a.QTD_ATUAL <> :qtAtual
-			OR a.COD_BARRA <> :codBarra
-			OR a.COD_NCM <> :codNcm
-			OR b.DESCRICAO <> :descricao
-			OR b.PRC_VENDA <> :prcVenda 
-			OR b.UNI_MEDIDA <> :undMedida
+			a.QTD_ATUAL     != :qtAtual
+			OR a.COD_BARRA  != :codBarra
+			OR a.COD_NCM    != :codNcm
+			OR b.DESCRICAO  != :descricao
+			OR b.PRC_VENDA  != :prcVenda 
+			OR b.UNI_MEDIDA != :uniMedida
 		)
 	""")
 }

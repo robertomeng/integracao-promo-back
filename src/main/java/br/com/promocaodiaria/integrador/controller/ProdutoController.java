@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.info.BuildProperties;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
@@ -22,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.promocaodiaria.integrador.dto.ProdutoPromoDiariaDto;
 import br.com.promocaodiaria.integrador.fire.model.EstoqueWrapper;
 import br.com.promocaodiaria.integrador.fire.repository.EstoqueRepository;
-import br.com.promocaodiaria.integrador.pg.model.ProdutoPromoDiaria;
 import br.com.promocaodiaria.integrador.pg.repository.ProdutoPromoDiariaRepository;
 import br.com.promocaodiaria.integrador.service.ProdutoPromoDiariaService;
 
@@ -43,7 +41,7 @@ public class ProdutoController {
 	ProdutoPromoDiariaRepository produtoPromoDiariaRepository;
 	
 	@GetMapping
-	public List<EstoqueWrapper> findEstoqueByName(@RequestParam String query, @RequestParam Integer page) {
+	public List<EstoqueWrapper> findEstoqueByName(@RequestParam String query) {
 		
 		return estoqueRepository.findEstoqueByDescricao(query);
 	}

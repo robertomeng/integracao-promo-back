@@ -3,12 +3,10 @@ package br.com.promocaodiaria.integrador.dto;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NonNull;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 public class ProdutoPromoDiariaDto {
 
 	@NonNull

@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import br.com.promocaodiaria.integrador.fire.model.EstoqueWrapper;
+import br.com.promocaodiaria.integrador.pg.model.ProdutoPromoDiaria;
 import br.com.promocaodiaria.integrador.query.Queries;
 import br.com.promocaodiaria.integrador.rowmapper.EstoqueWrapperRowMapper;
 
@@ -37,5 +38,20 @@ public class EstoqueRepositoryImpl implements EstoqueRepositoryCustom {
 	    NamedParameterJdbcTemplate npjt = new NamedParameterJdbcTemplate(jdbcTemplate.getDataSource());
 	    
 	    return npjt.queryForObject(Queries.select_produtos_por_id, params, new EstoqueWrapperRowMapper());
+	}
+
+	@Override
+	public EstoqueWrapper getProdutoAlterado(ProdutoPromoDiaria produtoPromoDiaria) {
+		Map<String,Object> params = new HashMap<String,Object>();
+	    params.put("idIdentificador", produtoPromoDiaria.getIdIdentificador());
+	    params.put("qtAtual", produtoPromoDiaria.getQtAtual());
+	    params.put("codBarra", produtoPromoDiaria.getCodBarra());
+	    params.put("codNcm", produtoPromoDiaria.getCodNcm());
+	    params.put("descricao", produtoPromoDiaria.getDescricao());
+	    params.put("prcVenda", produtoPromoDiaria.getPrcVenda());
+	    params.put("uniMedida", produtoPromoDiaria.getUniMedida());
+	    NamedParameterJdbcTemplate npjt = new NamedParameterJdbcTemplate(jdbcTemplate.getDataSource());
+	    
+	    return npjt.queryForObject(Queries.select_produto_alterado, params, new EstoqueWrapperRowMapper());
 	}
 }

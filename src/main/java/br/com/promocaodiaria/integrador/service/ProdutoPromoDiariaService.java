@@ -1,6 +1,7 @@
 package br.com.promocaodiaria.integrador.service;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,17 +25,26 @@ public class ProdutoPromoDiariaService {
 	public void save(List<ProdutoPromoDiariaDto> produtos) {
 		produtos.forEach(produtoDto -> {
 			EstoqueWrapper estoque = estoqueRepository.findEstoqueById(produtoDto.getIdIdentificador());
-			produtoPromoDiariaRepository.save(parserProduto(estoque, produtoDto));	
+			produtoPromoDiariaRepository.save(parserProduto(estoque, produtoDto.getDtInicio(), produtoDto.getDtFim()));	
 		});
 	}
 	
-	private ProdutoPromoDiaria parserProduto(EstoqueWrapper estoque, ProdutoPromoDiariaDto dto) {
+	public ProdutoPromoDiaria update(EstoqueWrapper estoque, ProdutoPromoDiaria produto) {
+		
+		ProdutoPromoDiaria parserProduto = parserProduto(estoque, produto.getDtInicio(), produto.getDtFim());
+		
+		parserProduto.setId(produto.getId());
+		
+		return produtoPromoDiariaRepository.saveAndFlush(parserProduto);	
+	}
+	
+	private ProdutoPromoDiaria parserProduto(EstoqueWrapper estoque, LocalDate inicio, LocalDate fim) {
 		
 		ProdutoPromoDiaria produtoPromoDiaria = new ProdutoPromoDiaria();
 		
 		produtoPromoDiaria.setDescricao(estoque.getDescricao());
-		produtoPromoDiaria.setDtInicio(dto.getDtInicio());
-		produtoPromoDiaria.setDtFim(dto.getDtFim());
+		produtoPromoDiaria.setDtInicio(inicio);
+		produtoPromoDiaria.setDtFim(fim);
 		produtoPromoDiaria.setQtAtual(estoque.getQtAtual());
 		produtoPromoDiaria.setIdIdentificador(estoque.getIdIdentificador());
 		produtoPromoDiaria.setPrcVenda(estoque.getPrcVenda());
@@ -45,6 +55,5 @@ public class ProdutoPromoDiariaService {
 		produtoPromoDiaria.setUniMedida(estoque.getUniMedida());
 		
 		return produtoPromoDiaria;
-		
 	}
 }

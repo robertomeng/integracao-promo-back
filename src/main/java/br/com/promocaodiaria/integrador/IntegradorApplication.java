@@ -11,9 +11,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @ComponentScan
 public class IntegradorApplication {
-
+	
 	public static void main(String[] args) {
 		SpringApplication.run(IntegradorApplication.class, args);
+		
 	}
 
 }
