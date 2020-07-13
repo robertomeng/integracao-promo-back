@@ -54,7 +54,7 @@ public class ProdutoController {
 		return ResponseEntity.ok(produtoPromoDiariaRepository.findAll(of));
 	}
 
-	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping
 	public ResponseEntity<?> salvar(@RequestBody List<ProdutoPromoDiariaDto> produtos) {
 		
 		produtoPromoDiariaService.save(produtos);

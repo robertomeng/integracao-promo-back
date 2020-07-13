@@ -22,25 +22,65 @@ public class ProdutoPromoDiariaService {
 	@Autowired
 	EstoqueRepository estoqueRepository;
 	
+	@Autowired
+	IntegracaoPromocaoDiariaService integracaoPromocaoDiariaService;
+	
 	public void save(List<ProdutoPromoDiariaDto> produtos) {
+		
 		produtos.forEach(produtoDto -> {
+			
 			EstoqueWrapper estoque = estoqueRepository.findEstoqueById(produtoDto.getIdIdentificador());
-			produtoPromoDiariaRepository.save(parserProduto(estoque, produtoDto.getDtInicio(), produtoDto.getDtFim()));	
+			
+			ProdutoPromoDiaria produto = new ProdutoPromoDiaria();
+			
+			parserProduto(produto, estoque, produtoDto.getDtInicio(), produtoDto.getDtFim());
+			
+			Response response = integracaoPromocaoDiariaService.adicionarProduto(produto);
+			
+			handlerResponse(response, produto);
+			
+			produtoPromoDiariaRepository.save(produto);
 		});
 	}
 	
 	public ProdutoPromoDiaria update(EstoqueWrapper estoque, ProdutoPromoDiaria produto) {
 		
-		ProdutoPromoDiaria parserProduto = parserProduto(estoque, produto.getDtInicio(), produto.getDtFim());
+		parserProduto(produto, estoque, produto.getDtInicio(), produto.getDtFim());
+
+		try {
 		
-		parserProduto.setId(produto.getId());
+			Response response = integracaoPromocaoDiariaService.editarProduto(produto);
 		
-		return produtoPromoDiariaRepository.saveAndFlush(parserProduto);	
+			handlerResponse(response, produto);
+		
+		} catch(Exception e) {
+			
+			produto.setAtivo(false);
+			produto.setSync(false);
+			produto.setLog(e.getMessage());
+			
+		}
+		
+		return produtoPromoDiariaRepository.saveAndFlush(produto);	
 	}
 	
-	private ProdutoPromoDiaria parserProduto(EstoqueWrapper estoque, LocalDate inicio, LocalDate fim) {
+	private void handlerResponse(Response response, ProdutoPromoDiaria produto) {
 		
-		ProdutoPromoDiaria produtoPromoDiaria = new ProdutoPromoDiaria();
+		if("OK".equalsIgnoreCase(response.getStatus())) {
+
+			produto.setAtivo(true);
+			produto.setSync(true);
+			produto.setLog(null);
+		
+		} else {
+			
+			produto.setAtivo(false);
+			produto.setSync(false);
+			produto.setLog(response.getMensagem());
+		}
+	}
+	
+	private void parserProduto(ProdutoPromoDiaria produtoPromoDiaria, EstoqueWrapper estoque, LocalDate inicio, LocalDate fim) {
 		
 		produtoPromoDiaria.setDescricao(estoque.getDescricao());
 		produtoPromoDiaria.setDtInicio(inicio);
@@ -54,6 +94,5 @@ public class ProdutoPromoDiariaService {
 		produtoPromoDiaria.setCodNcm(estoque.getCodNcm());
 		produtoPromoDiaria.setUniMedida(estoque.getUniMedida());
 		
-		return produtoPromoDiaria;
 	}
 }

@@ -24,5 +24,11 @@ public class Config implements Serializable{
 	
 	@Column(name="tempo_scan")
 	private Long tempoScan;
+	
+	@Column(name="url_integracao")
+	private String urlIntegracao;
+	
+	@Column(name="token")
+	private String token;
 
 }

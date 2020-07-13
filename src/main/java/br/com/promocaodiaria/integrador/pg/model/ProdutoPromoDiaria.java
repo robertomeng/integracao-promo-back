@@ -65,4 +65,7 @@ public class ProdutoPromoDiaria {
 	
 	@Column(name="ativo")
 	private boolean ativo = false;
+	
+	@Column(name="log")
+	private String log;
 }
