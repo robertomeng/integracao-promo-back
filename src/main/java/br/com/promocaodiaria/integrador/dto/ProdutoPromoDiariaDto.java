@@ -4,13 +4,12 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import lombok.Data;
-import lombok.NonNull;
 
 @Data
 public class ProdutoPromoDiariaDto {
 
-	@NonNull
 	private Long idIdentificador;
+	private String nome;
 	private String descricao;
 	private BigDecimal prcVenda;
 	private BigDecimal vlCusto;
