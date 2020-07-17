@@ -55,7 +55,6 @@ public class ProdutoPromoDiariaService {
 		
 		} catch(Exception e) {
 			
-			produto.setAtivo(false);
 			produto.setSync(false);
 			produto.setLog(e.getMessage());
 			
@@ -67,14 +66,11 @@ public class ProdutoPromoDiariaService {
 	private void handlerResponse(Response response, ProdutoPromoDiaria produto) {
 		
 		if("OK".equalsIgnoreCase(response.getStatus())) {
-
-			produto.setAtivo(true);
+			
 			produto.setSync(true);
 			produto.setLog(null);
 		
 		} else {
-			
-			produto.setAtivo(false);
 			produto.setSync(false);
 			produto.setLog(response.getMensagem());
 		}

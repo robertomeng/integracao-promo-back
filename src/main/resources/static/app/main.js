@@ -529,22 +529,23 @@ function SelecaoProdutosComponent_ng_template_28_Template(rf, ctx) { if (rf & 1)
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", produto_r3.selecionado);
 } }
-function SelecaoProdutosComponent_ng_template_56_p_splitButton_24_Template(rf, ctx) { if (rf & 1) {
+function SelecaoProdutosComponent_ng_template_56_p_splitButton_27_Template(rf, ctx) { if (rf & 1) {
     const _r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p-splitButton", 30);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("onClick", function SelecaoProdutosComponent_ng_template_56_p_splitButton_24_Template_p_splitButton_onClick_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r11); const ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); return ctx_r10.desativarProduto(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p-splitButton", 33);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("onClick", function SelecaoProdutosComponent_ng_template_56_p_splitButton_27_Template_p_splitButton_onClick_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r11); const ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); return ctx_r10.desativarProduto(); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("model", ctx_r8.acoes);
 } }
-function SelecaoProdutosComponent_ng_template_56_p_splitButton_25_Template(rf, ctx) { if (rf & 1) {
+function SelecaoProdutosComponent_ng_template_56_p_splitButton_28_Template(rf, ctx) { if (rf & 1) {
     const _r13 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p-splitButton", 31);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("onClick", function SelecaoProdutosComponent_ng_template_56_p_splitButton_25_Template_p_splitButton_onClick_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r13); const ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); return ctx_r12.ativarProduto(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p-splitButton", 34);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("onClick", function SelecaoProdutosComponent_ng_template_56_p_splitButton_28_Template_p_splitButton_onClick_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r13); const ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); return ctx_r12.ativarProduto(); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function SelecaoProdutosComponent_ng_template_56_Template(rf, ctx) { if (rf & 1) {
+    const _r15 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p-card", 24);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 25);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 13);
@@ -573,17 +574,24 @@ function SelecaoProdutosComponent_ng_template_56_Template(rf, ctx) { if (rf & 1)
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "div", 13);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "div", 13);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "div", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "i", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("mouseover", function SelecaoProdutosComponent_ng_template_56_Template_i_mouseover_22_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r15); const ctx_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r14.showAvisoSync = true; })("mouseout", function SelecaoProdutosComponent_ng_template_56_Template_i_mouseout_22_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r15); const ctx_r16 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r16.showAvisoSync = false; });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](24, SelecaoProdutosComponent_ng_template_56_p_splitButton_24_Template, 1, 1, "p-splitButton", 28);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](25, SelecaoProdutosComponent_ng_template_56_p_splitButton_25_Template, 1, 0, "p-splitButton", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "div", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](27, SelecaoProdutosComponent_ng_template_56_p_splitButton_27_Template, 1, 1, "p-splitButton", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](28, SelecaoProdutosComponent_ng_template_56_p_splitButton_28_Template, 1, 0, "p-splitButton", 32);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const produto_r7 = ctx.$implicit;
+    const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", produto_r7.codBarra, " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
@@ -593,15 +601,19 @@ function SelecaoProdutosComponent_ng_template_56_Template(rf, ctx) { if (rf & 1)
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", produto_r7.qtAtual, " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](12, 11, produto_r7.prcVenda), " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](12, 13, produto_r7.prcVenda), " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" de ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](15, 13, produto_r7.dtInicio, "dd/MM/yyyy"), "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" de ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](15, 15, produto_r7.dtInicio, "dd/MM/yyyy"), "");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" h\u00E0 ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](18, 16, produto_r7.dtFim, "dd/MM/yyyy"), " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" h\u00E0 ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](18, 18, produto_r7.dtFim, "dd/MM/yyyy"), " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", produto_r7.sync ? "Sim" : "N\u00E3o", " ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", produto_r7.ativo ? "Sim" : "N\u00E3o", " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", ctx_r2.showAvisoSync ? "show" : "hide");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", produto_r7.log, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", produto_r7.sync ? "Sim" : "N\u00E3o", " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", produto_r7.ativo);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
@@ -616,6 +628,7 @@ class SelecaoProdutosComponent {
         this.produtosPromocaoFilter = [];
         this.pageLinks = 0;
         this.pt = _utils_Calendar__WEBPACK_IMPORTED_MODULE_1__["Calendar"].PT_BR;
+        this.showAvisoSync = false;
         this.acoes = [
             {
                 label: 'Sync',
@@ -714,7 +727,7 @@ SelecaoProdutosComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ�
     } if (rf & 2) {
         var _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.inputAutoComplete = _t.first);
-    } }, decls: 57, vars: 13, consts: [[1, "p-gutter", "p-grid", "p-align-baseline"], [1, "p-col-2", "ui-float-label"], ["id", "float-input", "required", "", "type", "text", "size", "30", "pInputText", "", 3, "ngModel", "ngModelChange"], ["for", "float-input"], ["type", "button", "label", "Salvar", 1, "p-col-1", 3, "click"], [3, "onChange"], ["header", "Sele\u00E7\u00E3o de Produtos"], [1, "content"], [1, "p-col-8", "input"], ["delay", "400", "minLength", "3", "field", "descricao", "placeholder", "Busque produtos para enviar", 3, "suggestions", "size", "completeMethod"], [1, "p-col-12"], [3, "paginator", "rows", "value"], [1, "p-grid"], [1, "p-col-1", "text-center"], [1, "p-col-3", "text-center"], [1, "p-col-2", "text-center"], ["pTemplate", "listItem"], ["pButton", "", "label", "Enviar", 3, "disabled", "click"], ["header", "Produtos Enviados"], [1, "content", "p-nogutter"], ["delay", "200", "minLength", "1", "field", "descricao", "placeholder", "Busque um produto", 3, "suggestions", "size", "completeMethod", "onBlur"], ["inputAutoComplete", ""], [3, "pageLinks", "paginator", "rows", "value"], [1, "p-grid", "p-justify-center"], [1, "p-col-12", "p-nogutter"], [1, "p-grid", "p-justify-around", "p-align-baseline"], ["dateFormat", "dd/mm/yy", "showButtonBar", "true", "selectionMode", "range", 3, "locale", "ngModel", "ngModelChange"], ["onLabel", "Sim", "offLabel", "N\u00E3o", 3, "ngModel", "ngModelChange"], ["label", "Desativar", "icon", "pi pi-times", 3, "model", "onClick", 4, "ngIf"], ["label", "Ativar", "icon", "pi pi-check", 3, "onClick", 4, "ngIf"], ["label", "Desativar", "icon", "pi pi-times", 3, "model", "onClick"], ["label", "Ativar", "icon", "pi pi-check", 3, "onClick"]], template: function SelecaoProdutosComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 57, vars: 13, consts: [[1, "p-gutter", "p-grid", "p-align-baseline"], [1, "p-col-2", "ui-float-label"], ["id", "float-input", "required", "", "type", "text", "size", "30", "pInputText", "", 3, "ngModel", "ngModelChange"], ["for", "float-input"], ["type", "button", "label", "Salvar", 1, "p-col-1", 3, "click"], [3, "onChange"], ["header", "Sele\u00E7\u00E3o de Produtos"], [1, "content"], [1, "p-col-8", "input"], ["delay", "400", "minLength", "3", "field", "descricao", "placeholder", "Busque produtos para enviar", 3, "suggestions", "size", "completeMethod"], [1, "p-col-12"], [3, "paginator", "rows", "value"], [1, "p-grid"], [1, "p-col-1", "text-center"], [1, "p-col-3", "text-center"], [1, "p-col-2", "text-center"], ["pTemplate", "listItem"], ["pButton", "", "label", "Enviar", 3, "disabled", "click"], ["header", "Produtos Enviados"], [1, "content", "p-nogutter"], ["delay", "200", "minLength", "1", "field", "descricao", "placeholder", "Busque um produto", 3, "suggestions", "size", "completeMethod", "onBlur"], ["inputAutoComplete", ""], [3, "pageLinks", "paginator", "rows", "value"], [1, "p-grid", "p-justify-center"], [1, "p-col-12", "p-nogutter"], [1, "p-grid", "p-justify-around", "p-align-baseline"], ["dateFormat", "dd/mm/yy", "showButtonBar", "true", "selectionMode", "range", 3, "locale", "ngModel", "ngModelChange"], ["onLabel", "Sim", "offLabel", "N\u00E3o", 3, "ngModel", "ngModelChange"], [1, "p-col-1", "text-center", "sync"], [1, "sync-info", "pi", "pi-exclamation-circle", 3, "mouseover", "mouseout"], [3, "ngClass"], ["label", "Desativar", "icon", "pi pi-times", 3, "model", "onClick", 4, "ngIf"], ["label", "Ativar", "icon", "pi pi-check", 3, "onClick", 4, "ngIf"], ["label", "Desativar", "icon", "pi pi-times", 3, "model", "onClick"], ["label", "Ativar", "icon", "pi pi-check", 3, "onClick"]], template: function SelecaoProdutosComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "span", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "input", 2);
@@ -808,7 +821,7 @@ SelecaoProdutosComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ�
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](55, "A\u00E7\u00F5es");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](56, SelecaoProdutosComponent_ng_template_56_Template, 26, 19, "ng-template", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](56, SelecaoProdutosComponent_ng_template_56_Template, 29, 21, "ng-template", 16);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -827,7 +840,7 @@ SelecaoProdutosComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ�
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("suggestions", ctx.produtosPromocaoFilter)("size", 60);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pageLinks", ctx.pageLinks)("paginator", true)("rows", 10)("value", ctx.produtosPromocaoFilter);
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["RequiredValidator"], primeng_inputtext__WEBPACK_IMPORTED_MODULE_5__["InputText"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgModel"], primeng_button__WEBPACK_IMPORTED_MODULE_6__["Button"], primeng_tabview__WEBPACK_IMPORTED_MODULE_7__["TabView"], primeng_tabview__WEBPACK_IMPORTED_MODULE_7__["TabPanel"], primeng_card__WEBPACK_IMPORTED_MODULE_8__["Card"], primeng_autocomplete__WEBPACK_IMPORTED_MODULE_9__["AutoComplete"], primeng_dataview__WEBPACK_IMPORTED_MODULE_10__["DataView"], primeng_api__WEBPACK_IMPORTED_MODULE_3__["Header"], primeng_api__WEBPACK_IMPORTED_MODULE_3__["PrimeTemplate"], primeng_button__WEBPACK_IMPORTED_MODULE_6__["ButtonDirective"], primeng_calendar__WEBPACK_IMPORTED_MODULE_11__["Calendar"], primeng_togglebutton__WEBPACK_IMPORTED_MODULE_12__["ToggleButton"], _angular_common__WEBPACK_IMPORTED_MODULE_13__["NgIf"], primeng_splitbutton__WEBPACK_IMPORTED_MODULE_14__["SplitButton"]], pipes: [_pipes_currency_custom_pipe__WEBPACK_IMPORTED_MODULE_15__["CurrencyCustomPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_13__["DatePipe"]], styles: [".content[_ngcontent-%COMP%] {\n  background-color: rgba(7, 5, 5, 0.582) !important;\n}\n\n.card-items[_ngcontent-%COMP%] {\n  padding: 5px;\n  margin: 5px 0px;\n}\n\n.input[_ngcontent-%COMP%] {\n  padding: 20px 0px;\n}\n\nbutton[_ngcontent-%COMP%] {\n  padding: 5px;\n  width: 200px;\n  max-width: 200px;\n  margin-top: 15px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2prYXNzbmVyL0RvY3VtZW50b3MvcHJvamV0b3MvZnJvbnRlbmQvaW50ZWdyYWRvci1wcm9tb2Nhby1kaWFyaWEvc3JjL2FwcC9zZWxlY2FvLXByb2R1dG9zL3NlbGVjYW8tcHJvZHV0b3MuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3NlbGVjYW8tcHJvZHV0b3Mvc2VsZWNhby1wcm9kdXRvcy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGlEQUFBO0FDQ0Y7O0FEQ0E7RUFDRSxZQUFBO0VBQ0EsZUFBQTtBQ0VGOztBREFBO0VBQ0UsaUJBQUE7QUNHRjs7QURBQTtFQUNFLFlBQUE7RUFDQSxZQUFBO0VBQ0EsZ0JBQUE7RUFDQSxnQkFBQTtBQ0dGIiwiZmlsZSI6InNyYy9hcHAvc2VsZWNhby1wcm9kdXRvcy9zZWxlY2FvLXByb2R1dG9zLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRlbnQge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDcsIDUsIDUsIDAuNTgyKSAhaW1wb3J0YW50O1xufVxuLmNhcmQtaXRlbXMge1xuICBwYWRkaW5nOiA1cHg7XG4gIG1hcmdpbjogNXB4IDBweDtcbn1cbi5pbnB1dCB7XG4gIHBhZGRpbmc6IDIwcHggMHB4O1xufVxuXG5idXR0b24ge1xuICBwYWRkaW5nOiA1cHg7XG4gIHdpZHRoOiAyMDBweDtcbiAgbWF4LXdpZHRoOiAyMDBweDtcbiAgbWFyZ2luLXRvcDogMTVweDtcbn1cbiIsIi5jb250ZW50IHtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSg3LCA1LCA1LCAwLjU4MikgIWltcG9ydGFudDtcbn1cblxuLmNhcmQtaXRlbXMge1xuICBwYWRkaW5nOiA1cHg7XG4gIG1hcmdpbjogNXB4IDBweDtcbn1cblxuLmlucHV0IHtcbiAgcGFkZGluZzogMjBweCAwcHg7XG59XG5cbmJ1dHRvbiB7XG4gIHBhZGRpbmc6IDVweDtcbiAgd2lkdGg6IDIwMHB4O1xuICBtYXgtd2lkdGg6IDIwMHB4O1xuICBtYXJnaW4tdG9wOiAxNXB4O1xufSJdfQ== */"] });
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["RequiredValidator"], primeng_inputtext__WEBPACK_IMPORTED_MODULE_5__["InputText"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgModel"], primeng_button__WEBPACK_IMPORTED_MODULE_6__["Button"], primeng_tabview__WEBPACK_IMPORTED_MODULE_7__["TabView"], primeng_tabview__WEBPACK_IMPORTED_MODULE_7__["TabPanel"], primeng_card__WEBPACK_IMPORTED_MODULE_8__["Card"], primeng_autocomplete__WEBPACK_IMPORTED_MODULE_9__["AutoComplete"], primeng_dataview__WEBPACK_IMPORTED_MODULE_10__["DataView"], primeng_api__WEBPACK_IMPORTED_MODULE_3__["Header"], primeng_api__WEBPACK_IMPORTED_MODULE_3__["PrimeTemplate"], primeng_button__WEBPACK_IMPORTED_MODULE_6__["ButtonDirective"], primeng_calendar__WEBPACK_IMPORTED_MODULE_11__["Calendar"], primeng_togglebutton__WEBPACK_IMPORTED_MODULE_12__["ToggleButton"], _angular_common__WEBPACK_IMPORTED_MODULE_13__["NgClass"], _angular_common__WEBPACK_IMPORTED_MODULE_13__["NgIf"], primeng_splitbutton__WEBPACK_IMPORTED_MODULE_14__["SplitButton"]], pipes: [_pipes_currency_custom_pipe__WEBPACK_IMPORTED_MODULE_15__["CurrencyCustomPipe"], _angular_common__WEBPACK_IMPORTED_MODULE_13__["DatePipe"]], styles: [".content[_ngcontent-%COMP%] {\n  background-color: rgba(7, 5, 5, 0.582) !important;\n}\n\n.card-items[_ngcontent-%COMP%] {\n  padding: 5px;\n  margin: 5px 0px;\n}\n\n.input[_ngcontent-%COMP%] {\n  padding: 20px 0px;\n}\n\nbutton[_ngcontent-%COMP%] {\n  padding: 5px;\n  width: 200px;\n  max-width: 200px;\n  margin-top: 15px;\n}\n\n.sync[_ngcontent-%COMP%] {\n  position: relative;\n}\n\n.sync-info[_ngcontent-%COMP%] {\n  cursor: pointer;\n}\n\n.show[_ngcontent-%COMP%] {\n  font-weight: 400;\n  font-size: 1rem;\n  color: white;\n  display: block;\n  position: absolute;\n  z-index: 1000;\n  box-shadow: 2px 2px 2px rgba(7, 5, 5, 0.582);\n  width: 10vw;\n  height: 10vh;\n  background-color: rgba(255, 102, 102, 0.582);\n}\n\n.hide[_ngcontent-%COMP%] {\n  display: none;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2prYXNzbmVyL0RvY3VtZW50b3MvcHJvamV0b3MvZnJvbnRlbmQvaW50ZWdyYWRvci1wcm9tb2Nhby1kaWFyaWEvc3JjL2FwcC9zZWxlY2FvLXByb2R1dG9zL3NlbGVjYW8tcHJvZHV0b3MuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3NlbGVjYW8tcHJvZHV0b3Mvc2VsZWNhby1wcm9kdXRvcy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGlEQUFBO0FDQ0Y7O0FEQ0E7RUFDRSxZQUFBO0VBQ0EsZUFBQTtBQ0VGOztBREFBO0VBQ0UsaUJBQUE7QUNHRjs7QURBQTtFQUNFLFlBQUE7RUFDQSxZQUFBO0VBQ0EsZ0JBQUE7RUFDQSxnQkFBQTtBQ0dGOztBREFBO0VBQ0Usa0JBQUE7QUNHRjs7QURBQTtFQUNFLGVBQUE7QUNHRjs7QURBQTtFQUNFLGdCQUFBO0VBQ0EsZUFBQTtFQUNBLFlBQUE7RUFDQSxjQUFBO0VBQ0Esa0JBQUE7RUFDQSxhQUFBO0VBQ0EsNENBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLDRDQUFBO0FDR0Y7O0FEQUE7RUFDRSxhQUFBO0FDR0YiLCJmaWxlIjoic3JjL2FwcC9zZWxlY2FvLXByb2R1dG9zL3NlbGVjYW8tcHJvZHV0b3MuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGVudCB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoNywgNSwgNSwgMC41ODIpICFpbXBvcnRhbnQ7XG59XG4uY2FyZC1pdGVtcyB7XG4gIHBhZGRpbmc6IDVweDtcbiAgbWFyZ2luOiA1cHggMHB4O1xufVxuLmlucHV0IHtcbiAgcGFkZGluZzogMjBweCAwcHg7XG59XG5cbmJ1dHRvbiB7XG4gIHBhZGRpbmc6IDVweDtcbiAgd2lkdGg6IDIwMHB4O1xuICBtYXgtd2lkdGg6IDIwMHB4O1xuICBtYXJnaW4tdG9wOiAxNXB4O1xufVxuXG4uc3luYyB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cblxuLnN5bmMtaW5mbyB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLnNob3cge1xuICBmb250LXdlaWdodDogNDAwO1xuICBmb250LXNpemU6IDFyZW07XG4gIGNvbG9yOiB3aGl0ZTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgei1pbmRleDogMTAwMDtcbiAgYm94LXNoYWRvdzogMnB4IDJweCAycHggcmdiYSg3LCA1LCA1LCAwLjU4Mik7XG4gIHdpZHRoOiAxMHZ3O1xuICBoZWlnaHQ6IDEwdmg7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjU1LCAxMDIsIDEwMiwgMC41ODIpO1xufVxuXG4uaGlkZSB7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG4iLCIuY29udGVudCB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoNywgNSwgNSwgMC41ODIpICFpbXBvcnRhbnQ7XG59XG5cbi5jYXJkLWl0ZW1zIHtcbiAgcGFkZGluZzogNXB4O1xuICBtYXJnaW46IDVweCAwcHg7XG59XG5cbi5pbnB1dCB7XG4gIHBhZGRpbmc6IDIwcHggMHB4O1xufVxuXG5idXR0b24ge1xuICBwYWRkaW5nOiA1cHg7XG4gIHdpZHRoOiAyMDBweDtcbiAgbWF4LXdpZHRoOiAyMDBweDtcbiAgbWFyZ2luLXRvcDogMTVweDtcbn1cblxuLnN5bmMge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG59XG5cbi5zeW5jLWluZm8ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5zaG93IHtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgZm9udC1zaXplOiAxcmVtO1xuICBjb2xvcjogd2hpdGU7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHotaW5kZXg6IDEwMDA7XG4gIGJveC1zaGFkb3c6IDJweCAycHggMnB4IHJnYmEoNywgNSwgNSwgMC41ODIpO1xuICB3aWR0aDogMTB2dztcbiAgaGVpZ2h0OiAxMHZoO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDI1NSwgMTAyLCAxMDIsIDAuNTgyKTtcbn1cblxuLmhpZGUge1xuICBkaXNwbGF5OiBub25lO1xufSJdfQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](SelecaoProdutosComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
