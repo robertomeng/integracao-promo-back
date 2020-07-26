@@ -1,0 +1,66 @@
+package br.com.promocaodiaria.integrador.query
+
+class QueriesTGA {
+
+	private static final String select_produtos = """
+		SELECT  
+			a.ID,
+			a.CODPRD as id_identificador,
+			a.SALDOGERALFISICO as qtd_atual,
+        	a.CODBARRAS as cod_barra,
+			f.CODCLAS as cod_ncm,
+			a.NOMEFANTASIA as nome,
+			a.APLICACAO as descricao,
+			a.PRECO1 as valor,
+			m.DTA_INICIO as data_inicio_promocao,
+			m.DTA_TERMINIO as data_termino_promocao,
+			iif (a.IDPROMOCAO <> '0', iif (i.tipo = 'P', SUM (a.PRECO1 - (a.PRECO1 * i.valor / 100)), i.VALOR), null) as valor_promocao,
+			u.DESCRICAO as unidade_medida
+		FROM TPRODUTO a
+		LEFT JOIN TPROMOCAO m
+			ON a.IDPROMOCAO = m.IDPROMOCAO
+		LEFT JOIN TPROMITEM i
+			ON a.CODPRD = i.CODPRD
+		LEFT JOIN TUND u
+			ON a.unidade = u.CODUND
+		LEFT JOIN TCLASSFISCAL f
+			ON f.CODCLAS = a.CODCLAS
+		WHERE a.INATIVO = 'F'
+			AND %s
+		GROUP BY 
+			a.ID, 
+			a.IDPROMOCAO,
+			a.CODPRD, 
+			a.NOMEFANTASIA, 
+			a.APLICACAO, 
+			a.UNIDADE, 
+			a.CODBARRAS, 
+			a.PRECO1, 
+			a.SALDOGERALFISICO, 
+			m.DTA_INICIO, 
+			m.DTA_TERMINIO, 
+			i.TIPO, 
+			m.valor, 
+			i.VALOR, 
+			u.DESCRICAO, 
+			f.CODCLAS
+	"""
+
+	public static final String select_produtos_por_id = String.format(select_produtos, " a.ID_IDENTIFICADOR = :id");
+
+	public static final String select_produtos_por_descricao = String.format(select_produtos, " a.NOMEFANTASIA LIKE UPPER('%'||:query||'%')");
+
+	public static final String select_produto_alterado = String.format(select_produtos, """ a.ID_IDENTIFICADOR = :idIdentificador
+			AND (
+				a.QTD_ATUAL     != :qtAtual
+				OR a.COD_BARRA  != :codBarra
+				OR a.COD_NCM    != :codNcm
+				OR b.DESCRICAO  != :nome
+				OR b.PRC_VENDA  != :valor
+				OR c.DT_INICIO  != :dtInicio
+				OR c.DT_FIM     != :dtFim
+				OR c.PRC_VENDA  != :valorPromocao
+				OR u.DESCRICAO  != :uniMedida
+			)"""
+		);
+}

@@ -14,8 +14,8 @@ import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 import org.springframework.stereotype.Component;
 
-import br.com.promocaodiaria.integrador.fire.model.EstoqueWrapper;
-import br.com.promocaodiaria.integrador.fire.repository.EstoqueRepository;
+import br.com.promocaodiaria.integrador.fire.model.ProdutoClienteWrapper;
+import br.com.promocaodiaria.integrador.fire.repository.ProdutoClienteRepository;
 import br.com.promocaodiaria.integrador.pg.model.Config;
 import br.com.promocaodiaria.integrador.pg.model.ProdutoPromoDiaria;
 import br.com.promocaodiaria.integrador.pg.repository.ConfigRepository;
@@ -34,7 +34,7 @@ public class Agendador implements SchedulingConfigurer {
 	ProdutoPromoDiariaRepository produtoPromoDiariaRepository;
 
 	@Autowired
-	EstoqueRepository estoqueRepository;
+	ProdutoClienteRepository estoqueRepository;
 	
 	@Autowired
 	ProdutoPromoDiariaService produtoPromoDiariaService;
@@ -54,11 +54,11 @@ public class Agendador implements SchedulingConfigurer {
 						
 						log.info("Produto a ser atualizado {}", produto.toString());
 						
-						EstoqueWrapper estoque = estoqueRepository.getProdutoAlterado(produto);
+						ProdutoClienteWrapper produtoCliente = estoqueRepository.getProdutoAlterado(produto);
 						
-						if (estoque != null) {
+						if (produtoCliente != null) {
 							
-							ProdutoPromoDiaria atualizado = produtoPromoDiariaService.update(estoque, produto);
+							ProdutoPromoDiaria atualizado = produtoPromoDiariaService.update(produto, produtoCliente);
 							
 							log.info("Produto Atulizado com sucesso produto {}", atualizado.toString());
 						}

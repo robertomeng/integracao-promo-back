@@ -72,8 +72,7 @@ public class IntegracaoPromocaoDiariaServiceImpl implements IntegracaoPromocaoDi
 //		jsonObject.put("setor", "");
 		jsonObject.put("descricao", produtoPromoDiaria.getDescricao());
 		jsonObject.put("estoque", produtoPromoDiaria.getQtAtual());
-		jsonObject.put("valor", produtoPromoDiaria.getPrcVenda());
-		jsonObject.put("valor_custo", produtoPromoDiaria.getVlCusto());
+		jsonObject.put("valor", produtoPromoDiaria.getValor());
 		jsonObject.put("valor_promocao", produtoPromoDiaria.getVlPromocao());
 		jsonObject.put("referencia_produto", produtoPromoDiaria.getCodNcm());
 		

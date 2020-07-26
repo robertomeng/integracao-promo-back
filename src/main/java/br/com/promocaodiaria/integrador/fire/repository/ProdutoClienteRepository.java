@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import br.com.promocaodiaria.integrador.fire.model.Estoque;
 
 @Repository
-public interface EstoqueRepository extends JpaRepository<Estoque, Long>, EstoqueRepositoryCustom {
+public interface ProdutoClienteRepository extends JpaRepository<Estoque, Long>, ProdutoClienteRepositoryCustom {
 
 	@Query(value = "select e from Estoque e where e.descricao like %:query%")
 	List<Estoque> search(@Param("query") String query, Pageable page);

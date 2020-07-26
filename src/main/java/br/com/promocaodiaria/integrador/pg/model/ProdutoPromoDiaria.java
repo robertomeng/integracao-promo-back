@@ -25,6 +25,9 @@ public class ProdutoPromoDiaria {
 	private Long id;
 	
 	@NonNull
+	@Column(name="nome")
+	private String nome;
+	
 	@Column(name="descricao")
 	private String descricao;
 	
@@ -39,11 +42,8 @@ public class ProdutoPromoDiaria {
 	private LocalDate dtFim;
 	
 	@NonNull
-	@Column(name="prc_venda")
-	private BigDecimal prcVenda;
-	
-	@Column(name="vl_custo")
-	private BigDecimal vlCusto;
+	@Column(name="valor")
+	private BigDecimal valor;
 	
 	@Column(name="vl_promocao")
 	private BigDecimal vlPromocao;

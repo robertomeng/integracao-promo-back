@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.promocaodiaria.integrador.dto.ProdutoPromoDiariaDto;
-import br.com.promocaodiaria.integrador.fire.model.EstoqueWrapper;
-import br.com.promocaodiaria.integrador.fire.repository.EstoqueRepository;
+import br.com.promocaodiaria.integrador.fire.model.ProdutoClienteWrapper;
+import br.com.promocaodiaria.integrador.fire.repository.ProdutoClienteRepository;
 import br.com.promocaodiaria.integrador.pg.repository.ProdutoPromoDiariaRepository;
 import br.com.promocaodiaria.integrador.service.ProdutoPromoDiariaService;
 
@@ -28,7 +28,7 @@ import br.com.promocaodiaria.integrador.service.ProdutoPromoDiariaService;
 public class ProdutoController {
 
 	@Autowired
-	EstoqueRepository estoqueRepository;
+	ProdutoClienteRepository estoqueRepository;
 
 	@Autowired
 	BuildProperties buildProperties;
@@ -40,9 +40,9 @@ public class ProdutoController {
 	ProdutoPromoDiariaRepository produtoPromoDiariaRepository;
 	
 	@GetMapping
-	public List<EstoqueWrapper> findEstoqueByName(@RequestParam String query) {
+	public List<ProdutoClienteWrapper> findEstoqueByName(@RequestParam String query) {
 		
-		return estoqueRepository.findEstoqueByDescricao(query);
+		return estoqueRepository.findProdutoClienteByDescricao(query);
 	}
 	
 	@GetMapping("promocoes")

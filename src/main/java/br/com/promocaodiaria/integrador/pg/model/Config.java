@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,5 +32,9 @@ public class Config implements Serializable{
 	
 	@Column(name="token")
 	private String token;
+	
+	@Column(name="sistema")
+	@Enumerated(EnumType.STRING)
+	private TipoSistemaEnum sistema;
 
 }

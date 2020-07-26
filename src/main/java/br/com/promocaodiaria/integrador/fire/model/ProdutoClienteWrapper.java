@@ -6,15 +6,17 @@ import java.time.LocalDate;
 import lombok.Data;
 
 @Data
-public class EstoqueWrapper {
+public class ProdutoClienteWrapper {
 
 	private Long idIdentificador;
 	private BigDecimal qtAtual;
 	private String codBarra; 
 	private String codNcm; 
+	private String nome;
 	private String descricao;
-	private BigDecimal prcVenda;
-	private String uniMedida;
-	private LocalDate dtInicio; 
+	private BigDecimal valor;
+	private LocalDate dtInicio;
 	private LocalDate dtFim;
+	private BigDecimal vlPromocao;
+	private String uniMedida;
 }
