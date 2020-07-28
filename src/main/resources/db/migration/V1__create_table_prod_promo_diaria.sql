@@ -3,7 +3,7 @@ CREATE TABLE prod_promo_diaria (
 	id integer not null PRIMARY KEY,
 	nome varchar(100),
 	descricao BLOB SUB_TYPE TEXT,
-	id_identificador integer,
+	id_identificador varchar(255),
 	dt_inicio date,
 	dt_fim date,
 	valor float,
@@ -12,6 +12,7 @@ CREATE TABLE prod_promo_diaria (
 	cod_barra varchar(15),
 	cod_ncm varchar(20),
 	uni_medida varchar(30),
+	setor varchar(50)
 	sync char(1),
 	ativo char(1),
 	log BLOB SUB_TYPE TEXT,

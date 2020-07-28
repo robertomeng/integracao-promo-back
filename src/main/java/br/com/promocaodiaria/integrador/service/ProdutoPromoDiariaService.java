@@ -33,6 +33,8 @@ public class ProdutoPromoDiariaService {
 			
 			parserProduto(produto, produtoCliente);
 			
+			produto.setSetor(produtoDto.getSetor());
+			
 			Response response = integracaoPromocaoDiariaService.adicionarProduto(produto);
 			
 			verifyResponse(response, produto);
@@ -41,13 +43,20 @@ public class ProdutoPromoDiariaService {
 		});
 	}
 	
-	public ProdutoPromoDiaria update(ProdutoPromoDiaria produto, ProdutoClienteWrapper produtoCliente) {
-		
-		parserProduto(produto, produtoCliente);
-
+	public ProdutoPromoDiaria update(ProdutoPromoDiaria produto, ProdutoClienteWrapper produtoCliente, boolean updateOnlyStock) {
 		try {
-		
-			Response response = integracaoPromocaoDiariaService.editarProduto(produto);
+			
+			Response response = null;
+			
+			if(updateOnlyStock) {
+
+				produto.setQtAtual(produtoCliente.getQtAtual());
+				response = integracaoPromocaoDiariaService.baixaEstoque(produto);
+				
+			} else {
+				parserProduto(produto, produtoCliente);			
+				response = integracaoPromocaoDiariaService.editarProduto(produto);
+			}	
 		
 			verifyResponse(response, produto);
 		

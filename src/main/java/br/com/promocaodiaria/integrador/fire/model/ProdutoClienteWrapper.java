@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 public class ProdutoClienteWrapper {
 
-	private Long idIdentificador;
+	private String idIdentificador;
 	private BigDecimal qtAtual;
 	private String codBarra; 
 	private String codNcm; 

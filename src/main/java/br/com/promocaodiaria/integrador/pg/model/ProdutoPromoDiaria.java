@@ -33,7 +33,7 @@ public class ProdutoPromoDiaria {
 	
 	@NonNull
 	@Column(name="id_identificador")
-	private Long idIdentificador;
+	private String idIdentificador;
 	
 	@Column(name="dt_inicio")
 	private LocalDate dtInicio;
@@ -68,4 +68,7 @@ public class ProdutoPromoDiaria {
 	
 	@Column(name="log")
 	private String log;
+	
+	@Column(name="setor")
+	private String setor;
 }

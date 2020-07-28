@@ -23,22 +23,26 @@ public class IntegracaoPromocaoDiariaServiceImpl implements IntegracaoPromocaoDi
 	@Override
 	public Response adicionarProduto(ProdutoPromoDiaria produtoPromoDiaria) {
 		
-		return execute("/adicionarProduto", produtoPromoDiaria);
+		JSONObject json = converteToJson(produtoPromoDiaria);
+		
+		return execute("/adicionarProduto", json);
 	}
 	
 	@Override
 	public Response editarProduto(ProdutoPromoDiaria produtoPromoDiaria) {
 		
-		return execute("/editarProduto", produtoPromoDiaria);
+		JSONObject json = converteToJson(produtoPromoDiaria);
+		
+		return execute("/editarProduto", json);
 	}
 	
-	private Response execute(String uri, ProdutoPromoDiaria produtoPromoDiaria) {
+	private Response execute(String uri, JSONObject json) {
 		
 		Config config = configRepository.findAll().get(0);
 		
 		String url = config.getUrlIntegracao().concat(uri);
 		
-		JSONObject json = converteToJson(produtoPromoDiaria, config.getToken());
+		json.put("codigo_empresa", config.getToken());
 		
 		HttpHeaders httpHeaders = new HttpHeaders();
 		
@@ -50,26 +54,19 @@ public class IntegracaoPromocaoDiariaServiceImpl implements IntegracaoPromocaoDi
 	}
 
 	@Override
-	public boolean baixaEstoque() {
-		
-		return false;
-	}
-
-	@Override
 	public boolean adicionarListaProdutos() {
 		
 		return false;
 	}
 	
-	private JSONObject converteToJson(ProdutoPromoDiaria produtoPromoDiaria, String token) {
+	private JSONObject converteToJson(ProdutoPromoDiaria produtoPromoDiaria) {
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("codigo_empresa", token);
 		jsonObject.put("nome", produtoPromoDiaria.getDescricao());
 		jsonObject.put("data_inicio_promocao", produtoPromoDiaria.getDtInicio());
 		jsonObject.put("data_termino_promocao", produtoPromoDiaria.getDtFim());
-//		jsonObject.put("marca", produtoPromoDiariaDto.getDtFim());
+//		jsonObject.put("marca", produtoPromoDiaria.getDtFim());
 		jsonObject.put("unidade_medida", produtoPromoDiaria.getUniMedida());
-//		jsonObject.put("setor", "");
+		jsonObject.put("setor", "");
 		jsonObject.put("descricao", produtoPromoDiaria.getDescricao());
 		jsonObject.put("estoque", produtoPromoDiaria.getQtAtual());
 		jsonObject.put("valor", produtoPromoDiaria.getValor());
@@ -77,5 +74,14 @@ public class IntegracaoPromocaoDiariaServiceImpl implements IntegracaoPromocaoDi
 		jsonObject.put("referencia_produto", produtoPromoDiaria.getCodNcm());
 		
 		return jsonObject;
+	}
+
+	@Override
+	public Response baixaEstoque(ProdutoPromoDiaria produtoPromoDiaria) {
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("referencia_produto", produtoPromoDiaria.getCodNcm());
+		jsonObject.put("quantidade", produtoPromoDiaria.getQtAtual());
+		
+		return execute("/baixaEstoque", jsonObject);
 	}
 }

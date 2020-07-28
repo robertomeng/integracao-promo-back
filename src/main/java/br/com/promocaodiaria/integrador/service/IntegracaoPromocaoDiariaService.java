@@ -6,6 +6,6 @@ public interface IntegracaoPromocaoDiariaService {
 
 	public Response adicionarProduto(ProdutoPromoDiaria produtoPromoDiaria);
 	public Response editarProduto(ProdutoPromoDiaria produtoPromoDiaria);
-	public boolean baixaEstoque();
+	public Response baixaEstoque(ProdutoPromoDiaria produto);
 	public boolean adicionarListaProdutos();
 }

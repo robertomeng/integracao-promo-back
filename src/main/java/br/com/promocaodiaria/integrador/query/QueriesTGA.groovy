@@ -46,21 +46,7 @@ class QueriesTGA {
 			f.CODCLAS
 	"""
 
-	public static final String select_produtos_por_id = String.format(select_produtos, " a.ID_IDENTIFICADOR = :id");
+	public static final String select_produtos_por_id = String.format(select_produtos, " a.CODPRD = :idIdentificador");
 
-	public static final String select_produtos_por_descricao = String.format(select_produtos, " a.NOMEFANTASIA LIKE UPPER('%'||:query||'%')");
-
-	public static final String select_produto_alterado = String.format(select_produtos, """ a.ID_IDENTIFICADOR = :idIdentificador
-			AND (
-				a.QTD_ATUAL     != :qtAtual
-				OR a.COD_BARRA  != :codBarra
-				OR a.COD_NCM    != :codNcm
-				OR b.DESCRICAO  != :nome
-				OR b.PRC_VENDA  != :valor
-				OR c.DT_INICIO  != :dtInicio
-				OR c.DT_FIM     != :dtFim
-				OR c.PRC_VENDA  != :valorPromocao
-				OR u.DESCRICAO  != :uniMedida
-			)"""
-		);
+	public static final String select_produtos_por_descricao = String.format(select_produtos, " a.NOMEFANTASIA LIKE UPPER('%'||:query||'%') AND a.CODPRD NOT IN (:idsNotIn) ");
 }

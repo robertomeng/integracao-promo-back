@@ -11,6 +11,6 @@ import br.com.promocaodiaria.integrador.pg.model.ProdutoPromoDiaria;
 public interface ProdutoClienteRepositoryCustom {
 
 	public List<ProdutoClienteWrapper> findProdutoClienteByDescricao(String query);
-	public ProdutoClienteWrapper findProdutoClienteById(Long id);
+	public ProdutoClienteWrapper findProdutoClienteById(String id);
 	public ProdutoClienteWrapper getProdutoAlterado(ProdutoPromoDiaria produtoPromoDiaria);
 }

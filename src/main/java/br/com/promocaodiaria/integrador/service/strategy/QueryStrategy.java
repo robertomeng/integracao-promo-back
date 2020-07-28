@@ -14,24 +14,6 @@ public class QueryStrategy {
 	@Autowired
 	ConfigRepository configRepository;
 
-	public String selectProdutoAlterado() {
-
-		Config config = configRepository.findAll().get(0);
-		
-		switch (config.getSistema()) {
-		
-		case TGA:
-			
-			return QueriesTGA.select_produto_alterado;
-
-		case CLIPP:
-			
-			return QueriesClippStore.select_produto_alterado;
-		}
-		
-		return null;
-	}
-
 	public String selectProdutosPorDescricao() {
 
 		Config config = configRepository.findAll().get(0);

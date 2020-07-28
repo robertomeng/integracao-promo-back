@@ -1,8 +1,10 @@
 package br.com.promocaodiaria.integrador.fire.repository;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -11,8 +13,10 @@ import org.springframework.stereotype.Repository;
 
 import br.com.promocaodiaria.integrador.fire.model.ProdutoClienteWrapper;
 import br.com.promocaodiaria.integrador.pg.model.ProdutoPromoDiaria;
+import br.com.promocaodiaria.integrador.pg.repository.ProdutoPromoDiariaRepository;
 import br.com.promocaodiaria.integrador.rowmapper.ProdutoClienteWrapperRowMapper;
 import br.com.promocaodiaria.integrador.service.strategy.QueryStrategy;
+import lombok.NonNull;
 
 @Repository
 public class ProdutoClienteRepositoryImpl implements ProdutoClienteRepositoryCustom {
@@ -23,20 +27,26 @@ public class ProdutoClienteRepositoryImpl implements ProdutoClienteRepositoryCus
 	@Autowired
 	QueryStrategy queryStrategy;
 	
+	@Autowired
+	ProdutoPromoDiariaRepository produtoPromoDiariaRepository;
+	
 	public List<ProdutoClienteWrapper> findProdutoClienteByDescricao(String query) {
 		
 		Map<String,Object> params = new HashMap<String,Object>();
 	    params.put("query", query);
+	    
+	    List<String> idsNotIn = produtoPromoDiariaRepository.findAll().stream().map(ProdutoPromoDiaria::getIdIdentificador).collect(Collectors.toList());
+	    params.put("idsNotIn", idsNotIn.isEmpty() ? Arrays.asList("-1") : idsNotIn);
 
 	    NamedParameterJdbcTemplate npjt = new NamedParameterJdbcTemplate(jdbcTemplate.getDataSource());
 	    
 	    return npjt.query(queryStrategy.selectProdutosPorDescricao(), params, new ProdutoClienteWrapperRowMapper());
 	}
 	
-	public ProdutoClienteWrapper findProdutoClienteById(Long id) {
+	public ProdutoClienteWrapper findProdutoClienteById(String id) {
 		
 		Map<String,Object> params = new HashMap<String,Object>();
-	    params.put("id", id);
+	    params.put("idIdentificador", id);
 
 	    NamedParameterJdbcTemplate npjt = new NamedParameterJdbcTemplate(jdbcTemplate.getDataSource());
 	    
@@ -48,19 +58,9 @@ public class ProdutoClienteRepositoryImpl implements ProdutoClienteRepositoryCus
 		Map<String,Object> params = new HashMap<String,Object>();
 	    
 		params.put("idIdentificador", produtoPromoDiaria.getIdIdentificador());
-	    params.put("qtAtual", produtoPromoDiaria.getQtAtual());
-	    params.put("codBarra", produtoPromoDiaria.getCodBarra());
-	    params.put("codNcm", produtoPromoDiaria.getCodNcm());
-	    params.put("nome", produtoPromoDiaria.getNome());
-	    params.put("valor", produtoPromoDiaria.getValor());
-	    params.put("dtInicio", produtoPromoDiaria.getDtInicio());
-	    params.put("dtFim", produtoPromoDiaria.getDtFim());
-	    params.put("valorPromocao", produtoPromoDiaria.getVlPromocao());
-	    params.put("uniMedida", produtoPromoDiaria.getUniMedida());
-	    params.put("descricao", produtoPromoDiaria.getDescricao());
 	    
 	    NamedParameterJdbcTemplate npjt = new NamedParameterJdbcTemplate(jdbcTemplate.getDataSource());
 	    
-	    return npjt.queryForObject(queryStrategy.selectProdutoAlterado(), params, new ProdutoClienteWrapperRowMapper());
+	    return npjt.queryForObject(queryStrategy.selectProdutosPorId(), params, new ProdutoClienteWrapperRowMapper());
 	}
 }

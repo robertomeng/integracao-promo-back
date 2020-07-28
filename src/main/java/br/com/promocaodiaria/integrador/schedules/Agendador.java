@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -56,9 +57,15 @@ public class Agendador implements SchedulingConfigurer {
 						
 						ProdutoClienteWrapper produtoCliente = estoqueRepository.getProdutoAlterado(produto);
 						
-						if (produtoCliente != null) {
+						
+						boolean stockHadUpdate = stockHadUpdate(produto, produtoCliente);
+						boolean produtoHadUpdate = produtoHadUpdate(produto, produtoCliente);
+						
+						if (produtoCliente != null && (produtoHadUpdate || stockHadUpdate)) {
 							
-							ProdutoPromoDiaria atualizado = produtoPromoDiariaService.update(produto, produtoCliente);
+							boolean updateOnlyStock = !produtoHadUpdate && stockHadUpdate;
+							
+							ProdutoPromoDiaria atualizado = produtoPromoDiariaService.update(produto, produtoCliente, updateOnlyStock);
 							
 							log.info("Produto Atulizado com sucesso produto {}", atualizado.toString());
 						}
@@ -88,5 +95,41 @@ public class Agendador implements SchedulingConfigurer {
 	private int getNewExecutionTime() {
 		List<Config> config = configRepository.findAll();
 		return config.get(0).getTempoScan().intValue();
+	}
+	
+	private boolean stockHadUpdate(ProdutoPromoDiaria produto, ProdutoClienteWrapper produtoCliente) {
+		
+		return !produto.getQtAtual().equals(produtoCliente.getQtAtual());
+
+	}
+	
+	private boolean produtoHadUpdate(ProdutoPromoDiaria produto, ProdutoClienteWrapper produtoCliente) {
+		return !(isEquals(produto.getCodBarra(), produtoCliente.getCodBarra())
+				|| isEquals(produto.getCodNcm(), produtoCliente.getCodNcm())
+				|| isEquals(produto.getNome(), produtoCliente.getNome())
+				|| isEquals(produto.getQtAtual(), produtoCliente.getQtAtual())
+				|| isEquals(produto.getUniMedida(), produtoCliente.getUniMedida())
+				|| isEquals(produto.getValor(), produtoCliente.getValor())
+				|| isEquals(produto.getVlPromocao(), produtoCliente.getVlPromocao())
+				|| isEquals(produto.getDtInicio(), produtoCliente.getDtInicio())
+				|| isEquals(produto.getDtFim(), produtoCliente.getDtFim()));
+	}
+	
+	private boolean isEquals(Object obj1, Object obj2) {
+		boolean bothNulls = Objects.isNull(obj1) && Objects.isNull(obj2);
+		
+		if (!bothNulls) {
+			
+			
+			if (Objects.isNull(obj1) || Objects.isNull(obj2)) {
+				return  false;
+			}
+			
+			if(obj1.equals(obj2)) {
+				return true;
+			}
+		}
+		
+		return bothNulls;
 	}
 }

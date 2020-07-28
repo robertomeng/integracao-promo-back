@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 public class ProdutoPromoDiariaDto {
 
-	private Long idIdentificador;
+	private String idIdentificador;
 	private String nome;
 	private String descricao;
 	private BigDecimal valor;
@@ -21,4 +21,5 @@ public class ProdutoPromoDiariaDto {
 	private LocalDate dtInicio;
 	private boolean ativo;
 	private boolean sync;
+	private String setor;
 }

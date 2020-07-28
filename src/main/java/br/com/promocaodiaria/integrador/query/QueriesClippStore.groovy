@@ -24,21 +24,9 @@ class QueriesClippStore {
 		WHERE
 	"""
 	
-	public static final String select_produtos_por_id = select_produtos.concat(" a.ID_IDENTIFICADOR = :id")
+	public static final String select_produtos_por_id = select_produtos.concat(" a.ID_IDENTIFICADOR = :idIdentificador")
 
-	public static final String select_produtos_por_descricao = select_produtos.concat(" b.DESCRICAO LIKE '%'||:query||'%'")
-	
-	public static final String select_produto_alterado = select_produtos.concat(""" a.ID_IDENTIFICADOR = :idIdentificador
-		AND (
-			a.QTD_ATUAL     != :qtAtual
-			OR a.COD_BARRA  != :codBarra
-			OR a.COD_NCM    != :codNcm
-			OR b.DESCRICAO  != :nome
-			OR b.PRC_VENDA  != :valor
-			OR c.DT_INICIO  != :dtInicio
-			OR c.DT_FIM     != :dtFim
-			OR c.PRC_VENDA  != :valorPromocao 
-			OR u.DESCRICAO  != :uniMedida
-		)
-	""")
+	public static final String select_produtos_por_descricao = select_produtos
+		.concat(" a.ID_IDENTIFICADOR NOT IN (SELECT tep.ID_IDENTIFICADOR FROM TB_EST_PRODUTO tep WHERE tep.ID_IDENTIFICADOR IN (:idsNotIn))")
+		.concat(" AND b.DESCRICAO LIKE '%'||:query||'%'")
 }

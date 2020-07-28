@@ -15,7 +15,7 @@ public class ProdutoClienteWrapperRowMapper implements RowMapper<ProdutoClienteW
 		
 		ProdutoClienteWrapper wrapper = new ProdutoClienteWrapper();
 		
-		wrapper.setIdIdentificador(rs.getLong("id_identificador"));
+		wrapper.setIdIdentificador(rs.getString("id_identificador"));
 		wrapper.setQtAtual(rs.getBigDecimal("qtd_atual"));
 		wrapper.setCodBarra(rs.getString("cod_barra"));
 		wrapper.setCodNcm(rs.getString("cod_ncm"));
