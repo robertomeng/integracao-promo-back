@@ -50,6 +50,10 @@ public class IntegracaoPromocaoDiariaServiceImpl implements IntegracaoPromocaoDi
 		
 		HttpEntity<String> httpEntity = new HttpEntity<String>(json.toString(), httpHeaders);
 		
+		Response post = restTemplateService.post(url, httpEntity, Response.class);
+		
+		post.getMensagem();
+		
 		return restTemplateService.post(url, httpEntity, Response.class);
 	}
 
@@ -64,14 +68,16 @@ public class IntegracaoPromocaoDiariaServiceImpl implements IntegracaoPromocaoDi
 		jsonObject.put("nome", produtoPromoDiaria.getDescricao());
 		jsonObject.put("data_inicio_promocao", produtoPromoDiaria.getDtInicio());
 		jsonObject.put("data_termino_promocao", produtoPromoDiaria.getDtFim());
-//		jsonObject.put("marca", produtoPromoDiaria.getDtFim());
+		jsonObject.put("marca", "");
+		jsonObject.put("gtin", produtoPromoDiaria.getCodBarra());
 		jsonObject.put("unidade_medida", produtoPromoDiaria.getUniMedida());
-		jsonObject.put("setor", "");
+		jsonObject.put("setor", produtoPromoDiaria.getSetor());
+		jsonObject.put("ncm", produtoPromoDiaria.getCodNcm());
 		jsonObject.put("descricao", produtoPromoDiaria.getDescricao());
 		jsonObject.put("estoque", produtoPromoDiaria.getQtAtual());
 		jsonObject.put("valor", produtoPromoDiaria.getValor());
 		jsonObject.put("valor_promocao", produtoPromoDiaria.getVlPromocao());
-		jsonObject.put("referencia_produto", produtoPromoDiaria.getCodNcm());
+		jsonObject.put("referencia_produto", produtoPromoDiaria.getIdIdentificador());
 		
 		return jsonObject;
 	}
