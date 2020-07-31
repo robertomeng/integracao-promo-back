@@ -65,10 +65,10 @@ public class IntegracaoPromocaoDiariaServiceImpl implements IntegracaoPromocaoDi
 	
 	private JSONObject converteToJson(ProdutoPromoDiaria produtoPromoDiaria) {
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("nome", produtoPromoDiaria.getDescricao());
+		jsonObject.put("nome", produtoPromoDiaria.getNome());
 		jsonObject.put("data_inicio_promocao", produtoPromoDiaria.getDtInicio());
 		jsonObject.put("data_termino_promocao", produtoPromoDiaria.getDtFim());
-		jsonObject.put("marca", "");
+		jsonObject.put("marca", "Marca");
 		jsonObject.put("gtin", produtoPromoDiaria.getCodBarra());
 		jsonObject.put("unidade_medida", produtoPromoDiaria.getUniMedida());
 		jsonObject.put("setor", produtoPromoDiaria.getSetor());
