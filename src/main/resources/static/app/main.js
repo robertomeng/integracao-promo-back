@@ -119,7 +119,7 @@ class AppComponent {
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_api_service__WEBPACK_IMPORTED_MODULE_2__["ApiService"])); };
-AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 6, vars: 1, consts: [["dir", "rtl", 1, "p-col-12", "ui-rtl"], ["pButton", "", "icon", "pi pi-power-off", "label", "Sair", 1, "p-col-1", 3, "click"], [1, "p-col-3"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 6, vars: 1, consts: [["dir", "rtl", 1, "p-col-12", "ui-rtl"], ["pButton", "", "icon", "pi pi-power-off", "label", "Sair", 1, "p-col-1", 3, "click"], [1, "p-col-3"], [2, "margin", "10px 10px"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "button", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_Template_button_click_1_listener() { return ctx.logout(); });
@@ -128,7 +128,7 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "p-messages");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "p-messages", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "router-outlet");
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
@@ -694,7 +694,16 @@ class SelecaoProdutosComponent {
                 detail: `Houve um erro ao salvar os produtos!`,
                 life: 3000,
             });
-        }, () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        }, () => {
+            this.resetListaProdutosBuscados();
+            ;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+    resetListaProdutosBuscados() {
+        this.produtos = [];
+        this.produtosPromocao = [];
+        this.produtosPromocaoFilter = [];
     }
     buscarProdutos(e) {
         this.api.get(`/produtos?query=${e.query}`).subscribe((resp) => {
@@ -737,7 +746,7 @@ SelecaoProdutosComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ�
     } if (rf & 2) {
         var _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.inputAutoComplete = _t.first);
-    } }, decls: 49, vars: 13, consts: [[1, "p-gutter", "p-grid", "p-align-baseline"], [1, "p-col-2", "ui-float-label"], ["id", "float-input", "required", "", "type", "text", "size", "30", "pInputText", "", 3, "ngModel", "ngModelChange"], ["for", "float-input"], ["type", "button", "label", "Salvar", 1, "p-col-1", 3, "click"], [3, "onChange"], ["header", "Sele\u00E7\u00E3o de Produtos"], [1, "content"], [1, "p-col-8", "input"], ["delay", "400", "minLength", "3", "field", "nome", "placeholder", "Busque produtos para enviar", 3, "suggestions", "size", "completeMethod"], [1, "p-col-12"], [3, "paginator", "rows", "value"], [1, "p-grid"], [1, "p-col-3", "text-center"], [1, "p-col-2", "text-center"], [1, "p-col-1", "text-center"], ["pTemplate", "listItem"], ["pButton", "", "label", "Enviar", 3, "disabled", "click"], ["header", "Produtos Enviados"], [1, "content", "p-nogutter"], ["delay", "200", "minLength", "1", "field", "descricao", "placeholder", "Busque um produto", 3, "suggestions", "size", "completeMethod", "onBlur"], ["inputAutoComplete", ""], [3, "pageLinks", "paginator", "rows", "value"], [1, "p-grid", "p-justify-center"], [1, "p-col-12", "p-nogutter"], [1, "p-grid", "p-justify-around", "p-align-baseline"], [1, "p-col-3", "text-center", 3, "options", "ngModel", "ngModelChange"], ["onLabel", "Sim", "offLabel", "N\u00E3o", 3, "ngModel", "ngModelChange"], ["class", "p-col-2 text-center", 4, "ngIf", "ngIfElse"], ["semInfo", ""], ["class", "log pi pi-exclamation-circle", 3, "mouseover", "mouseleave", 4, "ngIf"], [1, "logs", "log-hide", 3, "id"], ["label", "Desativar", "icon", "pi pi-times", 3, "model", "onClick", 4, "ngIf"], ["label", "Ativar", "icon", "pi pi-check", 3, "onClick", 4, "ngIf"], [1, "log", "pi", "pi-exclamation-circle", 3, "mouseover", "mouseleave"], ["label", "Desativar", "icon", "pi pi-times", 3, "model", "onClick"], ["label", "Ativar", "icon", "pi pi-check", 3, "onClick"]], template: function SelecaoProdutosComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 49, vars: 13, consts: [[1, "p-gutter", "p-grid", "p-align-baseline"], [1, "p-col-2", "ui-float-label"], ["id", "float-input", "required", "", "type", "text", "size", "30", "pInputText", "", 3, "ngModel", "ngModelChange"], ["for", "float-input"], ["type", "button", "label", "Salvar", 1, "p-col-1", 3, "click"], [3, "onChange"], ["header", "Sele\u00E7\u00E3o de Produtos"], [1, "content"], [1, "p-col-8", "input"], ["delay", "400", "minLength", "3", "field", "nome", "placeholder", "Busque produtos para enviar", 3, "suggestions", "size", "completeMethod"], [1, "p-col-12"], [3, "paginator", "rows", "value"], [1, "p-grid"], [1, "p-col-3", "text-center"], [1, "p-col-2", "text-center"], [1, "p-col-1", "text-center"], ["pTemplate", "listItem"], ["pButton", "", "label", "Enviar", 3, "disabled", "click"], ["header", "Produtos Enviados"], [1, "content", "p-nogutter"], ["delay", "200", "minLength", "1", "field", "descricao", "placeholder", "Busque um produto", 3, "suggestions", "size", "completeMethod", "onBlur"], ["inputAutoComplete", ""], [3, "pageLinks", "paginator", "rows", "value"], [1, "p-grid", "p-justify-center"], [1, "p-col-12", "p-nogutter"], [1, "p-grid", "p-justify-around", "p-align-baseline"], ["placeholder", "Selecione um Setor", 1, "p-col-3", "text-center", 3, "options", "ngModel", "ngModelChange"], ["onLabel", "Sim", "offLabel", "N\u00E3o", 3, "ngModel", "ngModelChange"], ["class", "p-col-2 text-center", 4, "ngIf", "ngIfElse"], ["semInfo", ""], ["class", "log pi pi-exclamation-circle", 3, "mouseover", "mouseleave", 4, "ngIf"], [1, "logs", "log-hide", 3, "id"], ["label", "Desativar", "icon", "pi pi-times", 3, "model", "onClick", 4, "ngIf"], ["label", "Ativar", "icon", "pi pi-check", 3, "onClick", 4, "ngIf"], [1, "log", "pi", "pi-exclamation-circle", 3, "mouseover", "mouseleave"], ["label", "Desativar", "icon", "pi pi-times", 3, "model", "onClick"], ["label", "Ativar", "icon", "pi pi-check", 3, "onClick"]], template: function SelecaoProdutosComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "span", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "input", 2);
