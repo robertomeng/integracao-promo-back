@@ -107,7 +107,7 @@ public class Agendador implements SchedulingConfigurer {
 		return !(isEquals(produto.getCodBarra(), produtoCliente.getCodBarra())
 				|| isEquals(produto.getCodNcm(), produtoCliente.getCodNcm())
 				|| isEquals(produto.getNome(), produtoCliente.getNome())
-				|| isEquals(produto.getQtAtual(), produtoCliente.getQtAtual())
+				|| isEquals(produto.getDescricao(), produtoCliente.getDescricao())
 				|| isEquals(produto.getUniMedida(), produtoCliente.getUniMedida())
 				|| isEquals(produto.getValor(), produtoCliente.getValor())
 				|| isEquals(produto.getVlPromocao(), produtoCliente.getVlPromocao())

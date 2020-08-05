@@ -2,6 +2,7 @@ package br.com.promocaodiaria.integrador.pg.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,10 +37,10 @@ public class ProdutoPromoDiaria {
 	private String idIdentificador;
 	
 	@Column(name="dt_inicio")
-	private LocalDate dtInicio;
+	private LocalDateTime dtInicio;
 	
 	@Column(name="dt_fim")
-	private LocalDate dtFim;
+	private LocalDateTime dtFim;
 	
 	@NonNull
 	@Column(name="valor")

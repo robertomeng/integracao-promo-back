@@ -2,6 +2,7 @@ package br.com.promocaodiaria.integrador.fire.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import lombok.Data;
 
@@ -15,8 +16,8 @@ public class ProdutoClienteWrapper {
 	private String nome;
 	private String descricao;
 	private BigDecimal valor;
-	private LocalDate dtInicio;
-	private LocalDate dtFim;
+	private LocalDateTime dtInicio;
+	private LocalDateTime dtFim;
 	private BigDecimal vlPromocao;
 	private String uniMedida;
 }
