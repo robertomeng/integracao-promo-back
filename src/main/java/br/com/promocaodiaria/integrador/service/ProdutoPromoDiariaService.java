@@ -96,6 +96,7 @@ public class ProdutoPromoDiariaService {
 		produtoPromoDiaria.setDtFim(produtoCliente.getDtFim());
 		produtoPromoDiaria.setVlPromocao(produtoCliente.getVlPromocao());
 		produtoPromoDiaria.setUniMedida(produtoCliente.getUniMedida());
+		produtoPromoDiaria.setAtivo(produtoCliente.getAtivo());
 		
 	}
 }

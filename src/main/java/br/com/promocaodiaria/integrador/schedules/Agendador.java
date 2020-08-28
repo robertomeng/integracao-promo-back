@@ -99,20 +99,21 @@ public class Agendador implements SchedulingConfigurer {
 	
 	private boolean stockHadUpdate(ProdutoPromoDiaria produto, ProdutoClienteWrapper produtoCliente) {
 		
-		return !produto.getQtAtual().equals(produtoCliente.getQtAtual());
+		return produto.getQtAtual() != produtoCliente.getQtAtual();
 
 	}
 	
 	private boolean produtoHadUpdate(ProdutoPromoDiaria produto, ProdutoClienteWrapper produtoCliente) {
 		return !(isEquals(produto.getCodBarra(), produtoCliente.getCodBarra())
-				|| isEquals(produto.getCodNcm(), produtoCliente.getCodNcm())
-				|| isEquals(produto.getNome(), produtoCliente.getNome())
-				|| isEquals(produto.getDescricao(), produtoCliente.getDescricao())
-				|| isEquals(produto.getUniMedida(), produtoCliente.getUniMedida())
-				|| isEquals(produto.getValor(), produtoCliente.getValor())
-				|| isEquals(produto.getVlPromocao(), produtoCliente.getVlPromocao())
-				|| isEquals(produto.getDtInicio(), produtoCliente.getDtInicio())
-				|| isEquals(produto.getDtFim(), produtoCliente.getDtFim()));
+				&& isEquals(produto.getCodNcm(), produtoCliente.getCodNcm())
+				&& isEquals(produto.getNome(), produtoCliente.getNome())
+				&& isEquals(produto.getDescricao(), produtoCliente.getDescricao())
+				&& isEquals(produto.getUniMedida(), produtoCliente.getUniMedida())
+				&& isEquals(produto.getValor(), produtoCliente.getValor())
+				&& isEquals(produto.getVlPromocao(), produtoCliente.getVlPromocao())
+				&& isEquals(produto.getDtInicio(), produtoCliente.getDtInicio())
+				&& isEquals(produto.getDtFim(), produtoCliente.getDtFim())
+				&& isEquals(produto.getAtivo(), produtoCliente.getAtivo()));
 	}
 	
 	private boolean isEquals(Object obj1, Object obj2) {

@@ -12,10 +12,11 @@ class QueriesTGA {
 			a.NOMEFANTASIA as nome,
 			a.APLICACAO as descricao,
 			a.PRECO1 as valor,
-			m.DTA_INICIO as data_inicio_promocao,
-			m.DTA_TERMINIO as data_termino_promocao,
+			m.DTA_INICIO  || ' 00:00' as data_inicio_promocao,
+			m.DTA_TERMINIO || ' 00:00' as data_termino_promocao,
 			iif (a.IDPROMOCAO <> '0', iif (i.tipo = 'P', SUM (a.PRECO1 - (a.PRECO1 * i.valor / 100)), i.VALOR), null) as valor_promocao,
-			u.DESCRICAO as unidade_medida
+			u.DESCRICAO as unidade_medida,
+			iif (a.INATIVO == 'F', a.INATIVO = 'T', a.INATIVO = 'F') as ativo
 		FROM TPRODUTO a
 		LEFT JOIN TPROMOCAO m
 			ON a.IDPROMOCAO = m.IDPROMOCAO
@@ -42,7 +43,8 @@ class QueriesTGA {
 			i.TIPO, 
 			m.valor, 
 			i.VALOR, 
-			u.DESCRICAO, 
+			u.DESCRICAO,
+			a.INATIVO,
 			f.CODCLAS
 	"""
 

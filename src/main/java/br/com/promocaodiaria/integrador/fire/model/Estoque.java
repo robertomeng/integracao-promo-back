@@ -1,7 +1,6 @@
 package br.com.promocaodiaria.integrador.fire.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +21,7 @@ public class Estoque implements Serializable {
 	private Long id;
 	private String descricao;
 	private String status;
-	private BigDecimal prcCusto;
-	private BigDecimal prcVenda;
+	private double prcCusto;
+	private double prcVenda;
 
 }

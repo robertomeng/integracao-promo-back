@@ -36,5 +36,8 @@ public class Config implements Serializable{
 	@Column(name="sistema")
 	@Enumerated(EnumType.STRING)
 	private TipoSistemaEnum sistema;
+	
+	@Column(name="caminho_banco")
+	private String caminhoBanco;
 
 }
