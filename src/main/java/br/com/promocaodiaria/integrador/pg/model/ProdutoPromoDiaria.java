@@ -63,7 +63,7 @@ public class ProdutoPromoDiaria {
 	private boolean sync = false;
 	
 	@Column(name="ativo")
-	private boolean ativo = false;
+	private boolean ativo;
 	
 	@Column(name="log")
 	private String log;

@@ -16,7 +16,7 @@ class QueriesTGA {
 			m.DTA_TERMINIO || ' 00:00' as data_termino_promocao,
 			iif (a.IDPROMOCAO <> '0', iif (i.tipo = 'P', SUM (a.PRECO1 - (a.PRECO1 * i.valor / 100)), i.VALOR), null) as valor_promocao,
 			u.DESCRICAO as unidade_medida,
-			iif (a.INATIVO == 'F', a.INATIVO = 'T', a.INATIVO = 'F') as ativo
+			iif (a.INATIVO == 'F', 'T', 'F') as ativo
 		FROM TPRODUTO a
 		LEFT JOIN TPROMOCAO m
 			ON a.IDPROMOCAO = m.IDPROMOCAO
