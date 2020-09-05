@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 
 import br.com.promocaodiaria.integrador.pg.model.Config;
 import br.com.promocaodiaria.integrador.pg.repository.ConfigRepository;
+import br.com.promocaodiaria.integrador.query.QueriesCelta;
 import br.com.promocaodiaria.integrador.query.QueriesClippStore;
+import br.com.promocaodiaria.integrador.query.QueriesEcoSys;
 import br.com.promocaodiaria.integrador.query.QueriesTGA;
 
 @Service
@@ -27,6 +29,14 @@ public class QueryStrategy {
 		case CLIPP:
 			
 			return QueriesClippStore.select_produtos_por_descricao;
+			
+		case ECOSYS:
+			
+			return QueriesEcoSys.select_produtos_por_descricao;
+			
+		case CELTA:
+		
+			return QueriesCelta.select_produtos_por_descricao;
 		}
 		
 		return null;

@@ -67,14 +67,14 @@ public class Agendador implements SchedulingConfigurer {
 							
 							ProdutoPromoDiaria atualizado = produtoPromoDiariaService.update(produto, produtoCliente, updateOnlyStock);
 							
-							log.info("Produto Atulizado com sucesso produto {}", atualizado.toString());
+							log.info("Produto Atualizado com sucesso produto {}", atualizado.toString());
 						}
 					
 					} catch (EmptyResultDataAccessException e) {
-						log.info("Este produto nao teve alteracao recente id={} desc={}", produto.getIdIdentificador(), produto.getDescricao());
+						log.info("Este produto nao teve alteracao recente id={} desc={}", produto.getIdIdentificador(), produto.getNome());
 					
 					} catch (IncorrectResultSizeDataAccessException e) {
-						log.info("Encontrou mais de um produto com este id={} desc={}", produto.getIdIdentificador(), produto.getDescricao());
+						log.info("Encontrou mais de um produto com este id={} desc={}", produto.getIdIdentificador(), produto.getNome());
 					}
 				});
 
@@ -113,7 +113,7 @@ public class Agendador implements SchedulingConfigurer {
 				&& isEquals(produto.getVlPromocao(), produtoCliente.getVlPromocao())
 				&& isEquals(produto.getDtInicio(), produtoCliente.getDtInicio())
 				&& isEquals(produto.getDtFim(), produtoCliente.getDtFim())
-				&& isEquals(produto.getAtivo(), produtoCliente.getAtivo()));
+				&& isEquals(produto.isAtivo(), produtoCliente.getAtivo()));
 	}
 	
 	private boolean isEquals(Object obj1, Object obj2) {

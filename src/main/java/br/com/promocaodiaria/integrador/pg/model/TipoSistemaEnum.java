@@ -3,7 +3,9 @@ package br.com.promocaodiaria.integrador.pg.model;
 public enum TipoSistemaEnum {
 
 	TGA("tga"),
-	CLIPP("clipp");
+	CLIPP("clipp"),
+	ECOSYS("ecosys"),
+	CELTA("celta");
 	
 	private String nome;
 	
